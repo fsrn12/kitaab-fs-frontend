@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+<%-include('includes/head') %>
+ <title><%=title%></title>
+  </head>
+  <body id="page-top">
+    <!-- Navigation-->
+    <%-include('includes/nav')%>
+
+    <!-- Signup-->
+    <section class="signup-section" id="signup">
+      <div class="container px-4 px-lg-5">
+          <div class="col-md-10 col-lg-8 mx-auto text-left">
+            <i class="far fa-paper-plane fa-2x mb-2 text-white"></i>
+            <h2 class="text-white mb-5">Login</h2>
+            <form
+              class="form-signup"
+              id="contactForm"
+              name="form1"
+              method="POST"
+              action="/login"
+            >
+            <% if(typeof(message) != "undefined") {%>
+              <h4 name="message" style="color: green"><%-message%></h4>
+              <% } %>
+              <!-- Email address input-->
+              <div class="row input-group-newsletter">
+                <div class="col">
+                  <input
+                    class="form-control"
+                    id="emailAddress"
+                    type="email"
+                    name="email"
+                    placeholder="Enter email address..."
+                    aria-label="Enter email address..."
+                    <% if(typeof(body) !==
+                    "undefined" ) {%> value="<%-body.email%>" <%}%> />
+                    <%
+                    if(typeof(errors) != "undefined") {%>
+                    <span style="color: red"><%-errors.emailMsg%></span>
+                    <% } %>
+                </div>
+                </div>
+                <div class="space"></div>
+                <div>
+                <div class="col">
+                  <input
+                    class="form-control"
+                    id="password"
+                    type="password"
+                    name="password"
+                    placeholder="Enter password..."
+                    aria-label="Enter password..."
+                  />
+                  <% if(typeof(errors) != "undefined") {%>
+                    <span style="color: red"><%-errors.passwordMsg%></span>
+                    <% } %>
+                </div>
+              </div>
+              <div class="space"></div>
+              <div>
+                <div class="col-auto">
+                  <button
+                    class="btn btn-primary"
+                    id="submitButton"
+                    type="submit"
+                    name="login-btn"
+                  >
+                    Login
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer-->
+    <%-include('includes/footer')%>
+  </body>
+</html>

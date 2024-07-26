@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%-include('includes/head') %>
+  <title><%=title%></title>
+</head>
+
+<body id="page-top">
+  <!-- Navigation-->
+  <header>
+    <%-include('includes/nav')%>
+  </header>
+  <!-- Signup-->
+  <section class="signup-section" id="signup">
+    <div class="container px-4 px-lg-5">
+      <div class="row gx-4 gx-lg-5">
+        <div class="col-md-10 col-lg-8 mx-auto text-left">
+          <i class="far fa-paper-plane fa-2x mb-2 text-white"></i>
+          <h2 name="h2-title" class="text-white mb-5">Add an author</h2>
+          <% if(typeof(message) != 'undefined'){%>
+          <h4 name="message" style="color: green"><%-message%></h4>
+          <%}%>
+          <form class="form-signup" id="addAuthorForm" action="/authors" method="POST">
+            <!-- NAME -->
+            <div class="row input-group-newsletter">
+              <div class="col">
+                <input class="form-control" id="name" type="text" name="name" placeholder="Enter Author Name" aria-label="Enter Author Name" <%if(typeof(body) !== "undefined" ) {%> value="<%-body.name%>" <%}%> />
+                <% if(typeof(errs) != "undefined") {%> <span style="color: red"><%-errs.nameMsg%></span>
+          <% } %>
+        </div>
+      </div>
+      <div class="space"></div>
+
+      // BOOKS
+      <div class="row input-group-newsletter">
+        <div class="col">
+          <% if(typeof(data) !== 'undefined') {%>
+          <select name="bookId" class="form-control">
+            <% data.map(book => {%>
+            <option value="<%-book._id %>"><%-book.title%></option>
+            <%})%>
+          </select>
+          <%}%>
+                </div>
+              </div>
+              <div class="space"></div>
+              // PUBLISHER
+              <div class="row input-group-newsletter">
+                <div class="col">
+                  <input class="form-control" id="publisher" type="text"
+                  name="publisher" placeholder="Enter Publisher"
+                  aria-label="Enter Publisher" <% if(typeof(body) !==
+                  "undefined" ) {%> value="<%-body.publisher%>" <%}%> /> <%
+                  if(typeof(errs) != "undefined") {%>
+          <span style="color: red"><%-errs.publisherMsg%></span>
+          <% } %>
+        </div>
+      </div>
+      <div class="space"></div>
+
+      // WEBSITE
+      <div class="row input-group-newsletter">
+        <div class="col">
+          <input class="form-control" id="website" type="text" name="website" placeholder="Enter website..." aria-label="Enter website..." <% if(typeof(body) !==
+                  "undefined" ) {%> value="<%-body.website%>" <%}%> /> <%
+                  if(typeof(errs) != "undefined") {%> <span style="color: red"><%-errs.websiteMsg%></span>
+          <% } %>
+        </div>
+      </div>
+      <div class="space"></div>
+      // TWITTER
+      <div class="row input-group-newsletter">
+        <div class="col">
+          <input class="form-control" id="twitter" type="text" name="twitter" placeholder="Enter twitter..." aria-label="Enter twitter..." <% if(typeof(body) !==
+                  "undefined" ) {%> value="<%-body.twitter%>" <%}%> /> <%
+                  if(typeof(errs) != "undefined") {%> <span style="color: red"><%-errs.twitterMsg%></span>
+          <% } %>
+        </div>
+      </div>
+      <div class="space"></div>
+      // ABOUT
+      <div class="row input-group-newsletter">
+        <div class="col">
+          <input class="form-control" type="text" name="about" placeholder="Enter about..." aria-label="Enter about..." <%
+                  if(typeof(body) !== "undefined" ) {%> value="<%-body.about%>" <%}%> /> <% if(typeof(errs) != "undefined") {%> <span style="color: red"><%-errs.aboutMsg%></span>
+          <% } %>
+        </div>
+      </div>
+      <div class="space"></div>
+      <div>
+        <div class="col-auto">
+          <button class="btn btn-primary" id="submitButton" type="submit" name="addAuthor-btn">
+            Add Author
+          </button>
+        </div>
+      </div>
+      </form>
+    </div>
+    </div>
+    </div>
+  </section>
+  <!-- Footer-->
+  <%-include('includes/footer')%>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+{
+  "name": "kitaab-fs-frontend",
+  "version": "1.0.0",
+  "keywords": [],
+  "author": "FAISAL REHMAN",
+  "license": "ISC",
+  "description": "",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "test": "vitest run --coverage",
+    "dev": "node --watch server",
+    "start": "node server"
+  },
+  "dependencies": {
+    "axios": "^1.7.2",
+    "cors": "^2.8.5",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.8.3",
+    "@types/express": "^4.17.21",
+    "@types/express-session": "^1.18.0",
+    "@vitest/coverage-v8": "^2.0.4",
+    "prettier": "^3.3.3",
+    "vitest": "^2.0.4"
+  }
+}

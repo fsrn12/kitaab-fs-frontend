@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%-include('includes/head') %>
+  <title><%=title%></title>
+</head>
+
+<body id="page-top">
+  <%-include('includes/nav')%>
+  <!-- Masthead-->
+  <header class="masthead">
+    <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+      <div class="d-flex justify-content-center">
+        <div class="text-center">
+          <% if(typeof(session) != "undefined" && typeof(session.name) !=
+            "undefined") {%>
+          <h4 name="message" style="color: green">
+            Welcome <%-session.name%>
+          </h4>
+          <% } %>
+          <h1 class="mx-auto my-0 text-uppercase">Kitaab</h1>
+          <h2 class="mx-auto mt-2 mb-5 text-white-50">
+            Find Your Genre. Find An Adventure.
+          </h2>
+        </div>
+      </div>
+    </div>
+  </header>
+  <%-include('includes/footer')%>
+</body>
+
+</html>

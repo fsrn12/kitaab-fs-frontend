@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <%-include('includes/head') %>
+  <title><%=title%></title>
+</head>
+
+<body id="page-top">
+  <header>
+    <%-include('includes/nav')%>
+  </header>
+
+  <section class="signup-section" id="signup">
+    <div class="container px-4 px-lg-5">
+      <div class="row gx-4 gx-lg-5">
+        <div class="col-md-10 col-lg-8 mx-auto text-left">
+          <i class="far fa-paper-plane fa-2x mb-2 text-white"></i>
+          <h2 name="h2-title" class="text-white mb-5">Add a book</h2>
+
+          <form class="form-signup" id="addBookForm" action="/books" method="POST">
+            <% if(typeof(message) != 'undefined'){%>
+            <h4 name="message" style="color: green"><%-message%></h4>
+            <%}%>
+
+              <!-- Title -->
+              <div class="row input-group-newsletter">
+                <div class="col">
+                  <input class="form-control" id="title" type="text"
+                  name="title" placeholder="Enter title..." aria-label="Enter
+                  title..." <% if(typeof(body) !== "undefined" ) {%>
+            value="<%-body.title%>" <%}%> /> <% if(typeof(errs) !=
+                  "undefined") {%>
+            <span style="color: red"><%-errs.titleMsg%></span>
+            <% } %>
+        </div>
+      </div>
+      <div class="space"></div>
+
+      // Author
+      <div class="row input-group-newsletter">
+        <div class="col">
+          <input class="form-control" id="author" type="text" name="author" placeholder="Enter author..." aria-label="Enter
+                  author..." <% if(typeof(body) !== "undefined" ) {%> value="<%-body.author%>" <%}%> /> <% if(typeof(errs) !=
+                  "undefined") {%> <span style="color: red"><%-errs.authorMsg%></span>
+          <% } %>
+        </div>
+      </div>
+      <div class="space"></div>
+
+      // ISBN
+      <div class="row input-group-newsletter">
+        <div class="col">
+          <input class="form-control" id="ISBN" type="text" name="ISBN" placeholder="Enter ISBN..." aria-label="Enter ISBN..." <%
+                  if(typeof(body) !== "undefined" ) {%> value="<%-body.ISBN%>" <%}%> /> <% if(typeof(errs) != "undefined") {%> <span style="color: red"><%-errs.ISBNMsg%></span>
+          <% } %>
+        </div>
+      </div>
+      <div class="space"></div>
+
+      // Publisher
+      <div class="row input-group-newsletter">
+        <div class="col">
+          <input class="form-control" id="publisher" type="text" name="publisher" placeholder="Enter publisher" aria-label="Enter publisher" <% if(typeof(body) !==
+                  "undefined" ) {%> value="<%-body.publisher%>" <%}%> /> <%
+                  if(typeof(errs) != "undefined") {%> <span style="color: red"><%-errs.publisherMsg%></span>
+          <% } %>
+        </div>
+      </div>
+      <div class="space"></div>
+
+      // Year Published
+      <div class="row input-group-newsletter">
+        <div class="col">
+          <input class="form-control" id="yearPublished" type="text" name="yearPublished" placeholder="Enter year Published..." aria-label="Enter zyear Published..." <% if(typeof(body) !==
+                  "undefined" ) {%> value="<%-body.yearPublished%>" <%}%> /> <%
+                  if(typeof(errs) != "undefined") {%> <span style="color: red"><%-errs.yearPublishedMsg%></span>
+          <% } %>
+        </div>
+      </div>
+      <div class="space"></div>
+
+      // Number of Pages
+      <div class="row input-group-newsletter">
+        <div class="col">
+          <input class="form-control" id="numberOfPages" type="text" name="numberOfPages" placeholder="Enter number Of Pages..." aria-label="Enter number Of Pages..." <% if(typeof(body) !==
+                  "undefined" ) {%> value="<%-body.numberOfPages%>" <%}%> /> <%
+                  if(typeof(errs) != "undefined") {%> <span style="color: red"><%-errs.numberOfPagesMsg%></span>
+          <% } %>
+        </div>
+      </div>
+      <div class="space"></div>
+
+      // Price
+      <div class="row input-group-newsletter">
+        <div class="col">
+          <input class="form-control" id="price" type="text" name="price" placeholder="Enter price..." aria-label="Enter
+                  price..." <% if(typeof(body) !== "undefined" ) {%> value="<%-body.price%>" <%}%> /> <% if(typeof(errs) !=
+                  "undefined") {%> <span style="color: red"><%-errs.priceMsg%></span>
+          <% } %>
+        </div>
+      </div>
+      <div class="space"></div>
+
+      <div>
+        <div class="col-auto">
+          <button class="btn btn-primary" id="submitButton" type="submit" name="addBook-btn">
+            Add Book!
+          </button>
+        </div>
+      </div>
+      </form>
+    </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- Footer-->
+  <%-include('includes/footer')%>
+</body>
+
+</html>

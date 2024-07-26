@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%-include('includes/head') %>
+  <title><%=title%></title>
+</head>
+
+<body id="page-top">
+  <!-- Navigation-->
+  <header>
+    <%-include('includes/nav')%>
+  </header>
+  <!-- Masthead-->
+  <!-- style="color: green;" -->
+  <section class="books-section">
+
+    <div class="section-header">
+
+      <h4>Books</h4>
+      <% if(typeof(message) != 'undefined'){%>
+      <h4 name="message"><%-message%></h4>
+      <%}%>
+            <div class="nav-link btn-dark">
+              <a name="addBook" href="/books/addBook" alt="Add a book" title="Add a book"
+                >+ Add a book</a
+              >
+            </div>
+            </div>
+
+            <div class="card-container">
+
+
+              <% if(typeof(data) != "undefined"){ data.map(book => {%>
+
+      <article class="card">
+        <div>
+          <p>Title: <%-book.title%>
+          <p>
+          <p>Author: <%-book.author%></p>
+          <p>ISBN: <%-book.ISBN%></p>
+          <p>Publisher: <%-book.publisher%></p>
+          <p>Year Published: <%-book.yearPublished%></p>
+          <p>Number of Pages: <%-book.numberOfPages%></p>
+          <p>Price: &pound;<%-book.price%></p>
+        </div>
+        <div class="actions">
+          <a name="editBook" href="/books/editBook/<%-book._id%>">Update Book</a>
+          <a name="deleteBook" href="/books/deleteBook/<%-book._id%>">Delete Book</a>
+
+        </div>
+      </article>
+      <%})}%>
+    </div>
+
+  </section>
+  <!-- Footer-->
+  <%-include('includes/footer')%>
+</body>
+
+</html>

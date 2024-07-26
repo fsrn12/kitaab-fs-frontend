@@ -1,0 +1,6 @@
+# .dockerignore
+node_modules
+coverage
+package-lock.json
+cspell.json
+bar

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%-include('includes/head') %>
+  <title><%=title%></title>
+</head>
+
+<body id="page-top">
+  <!-- Navigation-->
+  <%-include('includes/nav')%>
+  <!-- Masthead-->
+  <section class="author-section">
+
+    <div class="section-header">
+
+      <h4>Authors</h4>
+      <% if(typeof(message) != 'undefined'){%>
+      <h4 name="message" style="color: green;"><%-message%></h4>
+      <%}%>
+            <div class="nav-link">
+              <a name="addAuthor" href="/authors/addAuthor" alt="Add a author" title="Add a author"
+                >+ Add an Author</a
+              >
+            </div>
+          </div>
+
+           <div class="card-container">
+          <% if(typeof(data) != "undefined"){ data.map(author => {%>
+
+      <article class="card">
+        <div>
+
+          <p>Name: <%-author.name%></p>
+          <p>Publisher: <%-author.publisher%></p>
+          <p>Website: <%-author.website%></p>
+          <p>Twitter: <%-author.twitter%></p>
+          <p>About: <%-author.about%></p>
+          <div>
+            <p>Book:</p>
+            <% if(author.book.length != 0){ author.book.map(book => {%>
+
+            <p>&emsp;Title: <%-book.title%></p>
+            <p>&emsp;Author: <%-book.author%></p>
+            <p>&emsp;ISBN: <%-book.ISBN%></p>
+            <p>&emsp;Number Of Pages: <%-book.numberOfPages%></p>
+            <p>&emsp;Price: &pound;<%-book.price%></p>
+            <p>&emsp;Year Published: <%-book.yearPublished%></p>
+            <%})}%>
+          </div>
+        </div>
+        <div class="actions">
+          <a name="editAuthor" href="/authors/editAuthor/<%-author._id%>">Update Author</a>
+          <a name="deleteAuthor" href="/authors/deleteAuthor/<%-author._id%>">Delete Author</a>
+        </div>
+      </article>
+      <%})}%>
+    </div>
+
+
+  </section>
+  <!-- Footer-->
+  <%-include('includes/footer')%>
+</body>
+
+</html>
